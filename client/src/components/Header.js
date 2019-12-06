@@ -3,16 +3,17 @@ import {connect} from 'react-redux';
 
 class Header extends Component{
   renderContent(){
-    console.log();
+    console.log(this.props);
     switch (this.props.auth){
       case null:
         return;
       case false:
+
       console.log("false");
-        return <li><a href="/auth/google">Login With Google</a></li>;
+        return (<li><a href="/auth/google">Login With Google</a></li>);
       default:
       console.log("default");
-        return <li><a>Logout</a></li>;
+        return (<li><a>Logout111</a></li>);
     }
   }
   render(){
@@ -21,7 +22,7 @@ class Header extends Component{
       <nav>
         <div className="nav-weapper">
           <a className="left brand-logo">
-            Ezra
+            Ezra Porfile
           </a>
           <ul className="right">
             {this.renderContent()}
@@ -32,7 +33,7 @@ class Header extends Component{
   }
 
 }
-function mapStateToProps(auth){
+function mapStateToProps({auth}){
   return {auth};
 }
 export default connect(mapStateToProps)(Header);
